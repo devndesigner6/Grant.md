@@ -1,0 +1,10 @@
+import Link from "next/link";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { AnimatedPageTitle } from "@/components/marketing/animated-page-title";
+import { MarketingFooter, MarketingHeroBanner } from "@/components/marketing/site-chrome";
+import { FaqSection } from "@/components/marketing/faq-section";
+import { companyFaqItems } from "@/lib/marketing/faq";
+
+export function CompanyPageView() {
+  return <div className="min-h-screen bg-[var(--creed-background)] text-[var(--creed-text-primary)]"><MarketingHeroBanner configured={isSupabaseConfigured()} scrolled={false} /><main className="mx-auto max-w-4xl px-6 pb-20 pt-8 md:px-10 md:pb-24 md:pt-10"><header className="border-b border-[var(--creed-border)] pb-10"><AnimatedPageTitle text="One shared context file your whole team's agents read" className="max-w-3xl" /><p className="t-lede mt-5 max-w-2xl text-[var(--creed-text-secondary)]">Grant gives teams one shared context file with roles, section permissions, activity, and admin controls.</p><div className="mt-7 flex flex-wrap items-center gap-3"><Link href="/signup" className="inline-flex h-10 items-center justify-center rounded-md bg-[var(--creed-accent)] px-5 text-[14px] font-medium text-white transition-colors hover:bg-[var(--creed-accent-hover)]">Get Started</Link><Link href="/docs" className="inline-flex h-10 items-center justify-center rounded-md border border-[var(--creed-border)] px-5 text-[14px] font-medium text-[var(--creed-text-primary)] transition-colors hover:bg-[var(--creed-surface)]">Read the docs</Link></div></header><section className="border-t border-[var(--creed-border)] py-12"><h2 className="text-[24px] font-medium tracking-[-0.01em] text-[var(--creed-text-primary)] md:text-[28px]">Roles that keep the file trusted</h2><p className="mt-3 max-w-2xl text-[16px] leading-7 text-[var(--creed-text-secondary)]">Owners manage the workspace, admins manage permitted content, and members work within section permissions.</p></section><FaqSection heading="Common questions" items={companyFaqItems} className="border-t border-[var(--creed-border)] py-12" /></main><MarketingFooter /></div>;
+}
